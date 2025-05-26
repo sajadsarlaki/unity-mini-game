@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 
@@ -11,8 +12,9 @@ public class GameManager : MonoBehaviour
 
 
     public int score = 0;
-    public int shooted_bullets = 0;
+    public int fired_bullets = 0;
     public int spawned_enenmies = 0;
+    public double accuracy = 0;
 
 
     private void Awake()
@@ -47,14 +49,20 @@ public class GameManager : MonoBehaviour
     {
         score += amount;
         UpdateScoreUI(score);
+
+        int destoryed_enemies = score;
+        UpdateAccuracy(fired_bullets, destoryed_enemies);
     }
 
   
 
-    public void AddToshootedBullets()
+    public void AddTofiredBullets()
     {
-        shooted_bullets += 1;
-        UpdateShootedBulletUI(shooted_bullets);
+        fired_bullets += 1;
+        UpdateFiredBulletUI(fired_bullets);
+
+        int destoryed_enemies = score;
+        UpdateAccuracy(fired_bullets, destoryed_enemies);
     }
 
     public void AddToSpawnedEnemies()
@@ -72,13 +80,36 @@ public class GameManager : MonoBehaviour
         _score_text.text = string.Join("\n",splitted_text);
     }
 
-    private void UpdateShootedBulletUI(int shooted_bullets)
+    private void UpdateFiredBulletUI(int fired_bullets)
     {
 
         string[] splitted_text = _score_text.text.Split("\n");
 
-        splitted_text[1] = "Used Bullets: " + shooted_bullets;
+        splitted_text[1] = "Fired Bullets: " + fired_bullets;
 
         _score_text.text = string.Join("\n", splitted_text);
+    }
+
+    private void UpdateAccuracy(int fired_bullets, int destroyed_enemies)
+    {
+    
+        if (fired_bullets != 0)
+        {
+            // casting to float to keep the franctional part
+            accuracy = (float)destroyed_enemies / fired_bullets;
+            accuracy = Math.Round(accuracy, 2) * 100;
+        }
+        else
+        {
+            accuracy = 0;
+        }
+
+        string[] splitted_text = _score_text.text.Split("\n");
+        splitted_text[2] = "Accuracy:" + accuracy + "%";
+        _score_text.text = string.Join("\n", splitted_text);
+
+
+
+
     }
 }

@@ -57,7 +57,7 @@ public class NewBehaviourScript : MonoBehaviour
         Rigidbody2D bulletRigid = bullet.GetComponent<Rigidbody2D>();
         bulletRigid.AddForce(transform.up * bullet_thrust, ForceMode2D.Impulse);
         // add to GameManager
-        GameManager.Instance.AddToshootedBullets();
+        GameManager.Instance.AddTofiredBullets();
 
         Destroy(bullet, bullet_life_time);
 
