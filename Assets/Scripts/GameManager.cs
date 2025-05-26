@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
 
 
 
+    
     public int score = 0;
     public int fired_bullets = 0;
     public int spawned_enenmies = 0;
@@ -111,5 +112,13 @@ public class GameManager : MonoBehaviour
 
 
 
+    }
+
+
+
+    public void Gameover()
+    {
+        GameOverManager gm = FindObjectOfType<GameOverManager>();
+        gm.TriggerGameOver();
     }
 }

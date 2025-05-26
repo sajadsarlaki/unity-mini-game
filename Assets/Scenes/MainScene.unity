@@ -150,8 +150,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _score_text: {fileID: 823522812}
   score: 0
-  shooted_bullets: 0
+  fired_bullets: 0
   spawned_enenmies: 0
+  accuracy: 0
 --- !u!4 &77598304
 Transform:
   m_ObjectHideFlags: 0
@@ -486,7 +487,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Score: 0 \nUsed Bullets: 0"
+  m_text: "Score: 0 \nFired Bullets: 0 \nAccuracy: 0%"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -667,6 +668,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bced2530cbfeade4c8194e19401f2091, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  speed: 10
 --- !u!114 &936718779
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -694,6 +696,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyPrefab: {fileID: 2823943699160823504, guid: d0a18dc0ee3a657419b8f10bad1c53e5, type: 3}
+  enemySpawnIntervallTime: 1
+  enemy_speed: 2
 --- !u!1 &1060840222
 GameObject:
   m_ObjectHideFlags: 0
