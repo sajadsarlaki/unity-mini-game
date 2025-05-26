@@ -6,7 +6,7 @@ using UnityEditor;
 public class EnemyControler : MonoBehaviour{
 
     [SerializeField] private GameObject EnemyPrefab;
-    private readonly float enemySpawnIntervallTime = 3f;
+    public float enemySpawnIntervallTime = 3f;
     private float nextEnemyGenerationTime;
     private float enemyLifeTime;
     private float screenHeight;
@@ -15,7 +15,7 @@ public class EnemyControler : MonoBehaviour{
     float rightBoundary;
     float topBoundary;
     float bottomBoundary;
-    private readonly float speed = 1f ; 
+    public float enemy_speed = 1f ; 
 
     // Start is called before the first frame update
     void Start()
@@ -26,7 +26,7 @@ public class EnemyControler : MonoBehaviour{
         leftBoundary = -screenWidth + 1f;
         rightBoundary = screenWidth - 1f;
 
-        enemyLifeTime = (2 * screenHeight / speed) + 1;
+        enemyLifeTime = (2 * screenHeight / enemy_speed) + 1;
         
 
 
@@ -68,7 +68,7 @@ void Update()
         GameObject enemy = Instantiate(EnemyPrefab, enemySpawnPosition, Quaternion.identity);
 
         Rigidbody2D rb = enemy.GetComponent<Rigidbody2D>();
-        rb.linearVelocity = Vector3.down * speed;
+        rb.linearVelocity = Vector3.down * enemy_speed;
 
         return enemy;
     }

@@ -105,7 +105,7 @@ public class GameManager : MonoBehaviour
         }
 
         string[] splitted_text = _score_text.text.Split("\n");
-        splitted_text[2] = "Accuracy:" + accuracy + "%";
+        splitted_text[2] = "Accuracy: " + accuracy + "%";
         _score_text.text = string.Join("\n", splitted_text);
 
 

@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
 
 
-    float speed = 8.0f;
+    public float speed = 8.0f;
     private int left_boundary;
     private int right_boundary;
     private float screenWidth;
